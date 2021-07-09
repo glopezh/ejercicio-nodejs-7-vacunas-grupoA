@@ -41,14 +41,14 @@ const vacunaAsignadaACentro = async () => {
       message: "Eliga centro de vacunación",
       choices: await getListaCentros(CentrosVacunacion, false),
     },
-    {
-      name: "ListaDeVacunas",
-      type: "list",
-      message: "Eliga una lista de vacunas",
-      choices: [
-        // que devuelva un array de las vacunas del centro
-      ],
-    },
+    // {
+    //   name: "ListaDeVacunas",
+    //   type: "list",
+    //   message: "Eliga una lista de vacunas",
+    //   choices: [
+    //     // que devuelva un array de las vacunas del centro
+    //   ],
+    // },
     {
       name: "AnyadirOtraVacuna",
       type: "list",
@@ -99,11 +99,6 @@ const vacunaDaministradaSinFecha = async () => {
       type: "list",
       message: "Eliga centro de vacunación",
       choices: await getListaCentros(CentrosVacunacion, true),
-    },
-    {
-      name: "AnyadirFecha",
-      type: "input",
-      message: "Añade la fecha de vacunación",
     },
   ]);
 };
