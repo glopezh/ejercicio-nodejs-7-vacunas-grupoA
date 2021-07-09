@@ -1,4 +1,5 @@
 const inquirer = require ("inquirer");
+
 const preguntasGenerales = async () =>{
     const respuestas = await inquirer.prompt([
         {
@@ -14,6 +15,10 @@ const preguntasGenerales = async () =>{
                 {
                     value: "PersonaVacuna",
                     name: "añadir una persona vacunada"
+                },
+                {
+                    value: "nada",
+                    name: "no hacer nada"
                 }
             ] 
         }
@@ -71,26 +76,26 @@ const fechaDeVacunacion = async() =>{
         },
     ]
     )}
-// const agregarPersonaVacunada = async() => {
-//     const respuestasPersonas = await inquirer.prompt([
-//         {
-//             name: "dni",
-//             type: "input",
-//             message: "Añade tu DNI",
-//         },
-//         {
-//             name: "CentroDeVacunación",
-//             type: "list",
-//             message: "Eliga centro de vacunación",
-//             choices: [
-//                 //añadir funcion que devuelva array de los centros  
-//             ]
-//         },
-//         {
-//             name: "AnyadirFecha",
-//             type: "input",
-//             message: "Añade la fecha de vacunación",
-//         },
+const agregarPersonaVacunada = async() => {
+    const respuestasPersonas = await inquirer.prompt([
+        {
+            name: "dni",
+            type: "input",
+            message: "Añade tu DNI",
+        },
+        {
+            name: "CentroDeVacunación",
+            type: "list",
+            message: "Eliga centro de vacunación",
+            choices: [
+                //añadir funcion que devuelva array de los centros  
+            ]
+        },
+        {
+            name: "AnyadirFecha",
+            type: "input",
+            message: "Añade la fecha de vacunación",
+        },
 
-//     ]),
-// },
+    ]);
+};
