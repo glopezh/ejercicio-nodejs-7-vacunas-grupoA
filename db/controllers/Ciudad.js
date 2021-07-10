@@ -13,7 +13,7 @@ const crearCiudad = async (ciudad) => {
     const newCiudad = await Ciudad.create(ciudad);
     return newCiudad;
   } catch (err) {
-    console.log("Error al crear el formador", err.message);
+    console.log("Error al crear la ciudad", err.message);
   }
 };
 

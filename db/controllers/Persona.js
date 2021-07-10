@@ -8,4 +8,13 @@ const listarPersonas = async () => {
   return persona;
 };
 
-module.exports = { listarPersonas };
+const crearPersona = async (persona) => {
+  try {
+    const newPersona = await Persona.create(persona);
+    return newPersona;
+  } catch (err) {
+    console.log("Error al crear la persona", err.message);
+  }
+};
+
+module.exports = { listarPersonas, crearPersona };
