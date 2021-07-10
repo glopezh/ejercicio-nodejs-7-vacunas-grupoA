@@ -1,9 +1,9 @@
 const { Schema, model } = require("mongoose");
-const puntoVacunacion = require("./PuntoVacunacion");
+const PuntoVacunacionSchema = require("./PuntoVacunacion");
 
 const CiudadSchema = new Schema({
   nombre: String,
-  puntosVacunacion: [puntoVacunacion],
+  puntosVacunacion: [PuntoVacunacionSchema],
 });
 
 const Ciudad = model("Ciudad", CiudadSchema, "Ciudad");
