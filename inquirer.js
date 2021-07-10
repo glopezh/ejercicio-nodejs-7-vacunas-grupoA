@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
-const { getListaCentros, CentrosVacunacion } = require("./funcionesCentro");
+const { getListaCentros } = require("./funcionesCentro");
+const { listarCiudades } = require("./db/controllers/Ciudad");
 
 const preguntasGenerales = async () => {
   const respuestas = await inquirer.prompt([
@@ -31,7 +32,7 @@ const preguntasGenerales = async () => {
     const respuestaPersona = await vacunaAdministradaConfecha();
   }
 };
-preguntasGenerales();
+// preguntasGenerales();
 
 const vacunaAsignadaACentro = async () => {
   const respuestasVacuna = await inquirer.prompt([
@@ -39,7 +40,7 @@ const vacunaAsignadaACentro = async () => {
       name: "CentroDeVacunación",
       type: "list",
       message: "Eliga centro de vacunación",
-      choices: await getListaCentros(CentrosVacunacion, false),
+      choices: getListaCentros(await listarCiudades(), false),
     },
     // {
     //   name: "ListaDeVacunas",
@@ -98,7 +99,8 @@ const vacunaDaministradaSinFecha = async () => {
       name: "CentroDeVacunación",
       type: "list",
       message: "Eliga centro de vacunación",
-      choices: await getListaCentros(CentrosVacunacion, true),
+      choices: await getListaCentros(await listarCiudades(), true),
     },
   ]);
 };
+module.exports = { preguntasGenerales };

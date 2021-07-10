@@ -3,7 +3,7 @@ const { Ciudad } = require("../models/Ciudad");
 const listarCiudades = async () => {
   const ciudades = await Ciudad.find();
 
-  console.log(ciudades);
+  // console.log(ciudades);
 
   return ciudades;
 };
