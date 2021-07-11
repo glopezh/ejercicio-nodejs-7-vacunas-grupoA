@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const puntoVacunacion = require("./PuntoVacunacion");
 
 const arrayLimit = (val) => val.length <= 2 && val.length >= 0;
 
@@ -12,10 +13,7 @@ const PersonaSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Vacuna",
   },
-  puntoVacunacion: {
-    type: Schema.Types.ObjectId,
-    ref: "PuntoVacunacion",
-  },
+  puntoVacunacion: { type: Schema.Types.ObjectId, ref: "PuntoVacunacion" },
   dosis: {
     type: [Date],
     validate: [arrayLimit, "La array debe ser de entre 2 y 0 dosis"],

@@ -14,6 +14,10 @@ const PuntoVacunacionSchema = new Schema({
   vacunas: [{ type: Schema.Types.ObjectId, ref: "Vacuna" }],
 });
 
-const PuntoVacunacion = model("PuntoVacunacion", PuntoVacunacionSchema);
+const PuntoVacunacion = model(
+  "PuntoVacunacion",
+  PuntoVacunacionSchema,
+  "PuntoVacunacion"
+);
 
 module.exports = { PuntoVacunacionSchema, PuntoVacunacion };
