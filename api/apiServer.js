@@ -3,21 +3,19 @@ const express = require("express");
 const app = express();
 const morgan =require ("morgan");
 
-// Trayendo info del controller
+const personaRoutes = require("../routes/Persona");
+
+/* // Trayendo info del controller
 
 const {
   listarCiudades,
   crearCiudad,
 } = require("../db/controllers/Ciudad");
 
-const {
-  listarPersonas,
-  crearPersona,
-} = require("../db/controllers/Persona");
 
 const {
   listarVacunas
-} = require("../db/controllers/Vacuna");
+} = require("../db/controllers/Vacuna"); */
 
 // Trayendo el info de los schemas - models
 
@@ -35,7 +33,7 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-// Starting the server
+// Starting the server npm run dev
 
 app.listen(app.get('port'), () => {
   console.log(`Server on port ${app.set('port')}`);
@@ -46,5 +44,5 @@ app.get('/', (req, res) => {
   res.send("Hello World");
 });
 
-// Ciudades
+app.get('/personas', personaRoutes);
 
