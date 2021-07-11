@@ -13,7 +13,7 @@ const PersonaSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Vacuna",
   },
-  puntoVacunacion,
+  puntoVacunacion: { type: Schema.Types.ObjectId, ref: "PuntoVacunacion" },
   dosis: {
     type: [Date],
     validate: [arrayLimit, "La array debe ser de entre 2 y 0 dosis"],

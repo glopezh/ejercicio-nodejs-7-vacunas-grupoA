@@ -1,4 +1,6 @@
 const { Ciudad } = require("../models/Ciudad");
+const { personasVacunadasEnCiudad } = require("./Persona");
+const { listarVacunas } = require("./Vacuna");
 
 const listarCiudades = async () => {
   const ciudades = await Ciudad.find();
@@ -17,4 +19,27 @@ const crearCiudad = async (ciudad) => {
   }
 };
 
-module.exports = { listarCiudades, crearCiudad };
+const dosisEnCiudad = async (idCiudad) => {
+  const personas = await personasVacunadasEnCiudad(idCiudad, "vacuna");
+  const vacunas = await listarVacunas();
+
+  const vacunasFormateadas = vacunas.map((vacuna) => {
+    const vacunaToReturn = {};
+
+    vacunaToReturn.nombre = vacuna.nombre;
+    vacunaToReturn.dosisAdministradas = personas.reduce(
+      (acumulador, valorActual) => {
+        if (valorActual.vacuna.id === vacuna.id) {
+          return acumulador + valorActual.dosis.length;
+        }
+        return acumulador;
+      },
+      0
+    );
+    return vacunaToReturn;
+  });
+
+  return vacunasFormateadas;
+};
+
+module.exports = { listarCiudades, crearCiudad, dosisEnCiudad };

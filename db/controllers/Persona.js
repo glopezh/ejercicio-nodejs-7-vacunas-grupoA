@@ -1,4 +1,6 @@
 const Persona = require("../models/Persona");
+const { Ciudad } = require("../models/Ciudad");
+const { PuntoVacunacion } = require("../models/PuntoVacunacion");
 
 const listarPersonas = async () => {
   const persona = await Persona.find();
@@ -17,4 +19,16 @@ const crearPersona = async (persona) => {
   }
 };
 
-module.exports = { listarPersonas, crearPersona };
+const personasVacunadasEnCiudad = async (idCiudad, rellenar = "") => {
+  const ciudad = await Ciudad.findById(idCiudad);
+
+  const idPuntosVacunacion = ciudad.puntosVacunacion.map((punto) => punto._id);
+
+  const personas = await Persona.find({
+    puntoVacunacion: { $in: [...idPuntosVacunacion] },
+  }).populate(rellenar);
+
+  return personas;
+};
+
+module.exports = { listarPersonas, crearPersona, personasVacunadasEnCiudad };
