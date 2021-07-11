@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const PuntoVacunacionSchema = require("./PuntoVacunacion");
+const { PuntoVacunacionSchema } = require("./PuntoVacunacion");
 
 const CiudadSchema = new Schema({
   nombre: String,
