@@ -3,12 +3,23 @@ const express = require("express");
 const app = express();
 const morgan =require ("morgan");
 
-// Middleware - morgan - ver lo que llega al servidor+
+// Settings
+app.set('port', process.env.PORT ||3000);
+
+// Middleware - morgan - ver lo que llega al servidor
 
 app.use(morgan("dev"));
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
+// routes
+
+app.get('/', (req, res) => {
+  res.send("Hello World");
+});
 
 // Starting the server
 
-app.listen(3000, () => {
-  console.log(`Server on port ${3000}`);
+app.listen(app.get('port'), () => {
+  console.log(`Server on port ${app.set('port')}`);
 });
