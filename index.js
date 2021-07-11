@@ -1,4 +1,8 @@
-const { listarPersonas, crearPersona } = require("./db/controllers/Persona");
+const {
+  listarPersonas,
+  crearPersona,
+  personasVacunadasEnCiudad,
+} = require("./db/controllers/Persona");
 const { listarVacunas } = require("./db/controllers/Vacuna");
 const { listarCiudades, crearCiudad } = require("./db/controllers/Ciudad");
 const { preguntasGenerales } = require("./inquirer");
