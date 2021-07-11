@@ -19,14 +19,14 @@ const crearPersona = async (persona) => {
   }
 };
 
-const personasVacunadasEnCiudad = async (idCiudad) => {
+const personasVacunadasEnCiudad = async (idCiudad, rellenar = "") => {
   const ciudad = await Ciudad.findById(idCiudad);
 
   const idPuntosVacunacion = ciudad.puntosVacunacion.map((punto) => punto._id);
 
   const personas = await Persona.find({
     puntoVacunacion: { $in: [...idPuntosVacunacion] },
-  });
+  }).populate(rellenar);
 
   return personas;
 };
