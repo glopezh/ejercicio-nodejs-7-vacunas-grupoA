@@ -48,12 +48,3 @@ app.get('/', (req, res) => {
 
 // Ciudades
 
-app.use("/listarCiudades", async (req, res, next) => {
-  const { dni } = req.body;
-  const ciudad = await Ciudad.findOne({
-    const nombreCiudad = await nuevoNombreUsuario(usuario.DNI, nombre),
-    where: {
-      nombre: nombreCiudad,
-    },
-  });
-});
