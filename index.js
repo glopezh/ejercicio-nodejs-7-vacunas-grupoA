@@ -4,12 +4,17 @@ const {
   personasVacunadasEnCiudad,
 } = require("./db/controllers/Persona");
 const { listarVacunas } = require("./db/controllers/Vacuna");
-const { listarCiudades, crearCiudad } = require("./db/controllers/Ciudad");
+const {
+  listarCiudades,
+  crearCiudad,
+  dosisEnCiudad,
+} = require("./db/controllers/Ciudad");
 const { preguntasGenerales } = require("./inquirer");
 
 require("./db");
 
 (async () => {
+  dosisEnCiudad("60e8277c500167717ca730bb");
   // Ejemplo creacion Persona
   // await crearPersona({
   //   dni: "43229678V",
