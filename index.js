@@ -14,6 +14,7 @@ const { preguntasGenerales } = require("./inquirer");
 require("./db");
 
 (async () => {
+  await preguntasGenerales();
   dosisEnCiudad("60e8277c500167717ca730bb");
   // Ejemplo creacion Persona
   // await crearPersona({
