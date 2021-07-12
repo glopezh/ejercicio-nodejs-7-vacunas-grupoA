@@ -5,6 +5,8 @@ const VacunaSchema = new Schema({
   dosis: Number,
 });
 
+// Esquema y conexión correspondiente
+
 const Vacuna = model("Vacuna", VacunaSchema, "Vacuna");
 
 module.exports = { Vacuna };

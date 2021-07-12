@@ -1,4 +1,5 @@
-const {
+require 
+/* const {
   listarPersonas,
   crearPersona,
   personasVacunadasEnCiudad,
@@ -43,3 +44,4 @@ require("./db");
   //
   // await listarCiudades();
 })();
+ */

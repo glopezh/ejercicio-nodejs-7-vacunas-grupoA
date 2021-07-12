@@ -3,7 +3,10 @@ const { Schema, model } = require("mongoose");
 const arrayLimit = (val) => val.length === 2;
 
 const PuntoVacunacionSchema = new Schema({
-  nombre: { type: String, unique: true },
+  nombre: {
+    type: String,
+    unique: true
+  },
   localizacion: {
     coordenadas: {
       type: [Number],

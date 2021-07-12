@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const puntoVacunacion = require("./PuntoVacunacion");
 
+// Variable para la validación
 const arrayLimit = (val) => val.length <= 2 && val.length >= 0;
 
 const PersonaSchema = new Schema({

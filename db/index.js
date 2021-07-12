@@ -1,5 +1,7 @@
 require("dotenv").config();
+const debug = require("debug")("vacunas:db:conexion");
 const mongoose = require("mongoose");
+const chalk = require("chalk");
 
 mongoose.connect(
   process.env.MONGODB_URL,
@@ -11,8 +13,8 @@ mongoose.connect(
   },
   (err) => {
     if (err) {
-      console.log("No se ha podido iniciar la base de datos");
-      console.log(err.message);
+      debug(chalk.red("No se ha podido iniciar la base de datos"));
+      debug(chalk.red(err.message));
       return;
     }
     console.log("Se ha iniciado la base de datos");
