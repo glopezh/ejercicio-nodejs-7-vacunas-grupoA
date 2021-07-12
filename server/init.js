@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 const morgan =require ("morgan");
 
-const personaRoutes = require("../routes/Persona");
 
 /* // Trayendo info del controller
 
@@ -44,5 +43,5 @@ app.get('/', (req, res) => {
   res.send("Hello World");
 });
 
-app.get('/personas', personaRoutes);
+
 
